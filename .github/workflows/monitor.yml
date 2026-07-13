@@ -1,0 +1,46 @@
+yaml
+name: Monitor T-cup 2026
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tcup-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stažení repozitáře
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Instalace Pythonu
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalace závislostí
+        run: pip install -r requirements.txt
+
+      - name: Spuštění kontroly
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python monitor.py
+
+      - name: Uložení nového stavu do repozitáře
+        run: |
+          git config user.name "tcup-monitor-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/
+          git diff --quiet --cached || git commit -m "Aktualizace stavu monitoru [skip ci]"
+          git push
