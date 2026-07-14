@@ -30,6 +30,7 @@ import sys
 import time
 import traceback
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 from email.mime.text import MIMEText
 from urllib.parse import urljoin, urlparse, urlunparse, parse_qsl, urlencode
 
@@ -286,8 +287,10 @@ def make_diff_summary(old_text: str, new_text: str, max_lines: int = 120) -> str
     return "\n".join(parts)
 
 
-def now_str():
-    return datetime.now(timezone.utc).astimezone().strftime("%d.%m.%Y %H:%M:%S %Z")
+LOCAL_TZ = ZoneInfo("Europe/Prague")
+
+   def now_str():
+       return datetime.now(LOCAL_TZ).strftime("%d.%m.%Y %H:%M:%S %Z")
 
 
 # --------------------------------------------------------------------------
