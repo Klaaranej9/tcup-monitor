@@ -289,8 +289,8 @@ def make_diff_summary(old_text: str, new_text: str, max_lines: int = 120) -> str
 
 LOCAL_TZ = ZoneInfo("Europe/Prague")
 
-   def now_str():
-       return datetime.now(LOCAL_TZ).strftime("%d.%m.%Y %H:%M:%S %Z")
+def now_str():
+    return datetime.now(LOCAL_TZ).strftime("%d.%m.%Y %H:%M:%S %Z")
 
 
 # --------------------------------------------------------------------------
