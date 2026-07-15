@@ -1,10 +1,10 @@
 {
   "url": "https://www.soaringspot.com/en_gb/download-contest-file/5293-41018",
-  "hash": "83fec028073d7b376cc85a9e8bcbb4c063934eddfa9bb3fb1ff902b85e27fcaf",
-  "notified_hash": "83fec028073d7b376cc85a9e8bcbb4c063934eddfa9bb3fb1ff902b85e27fcaf",
-  "text": "size=None last_modified=None",
+  "hash": "3f10db858bfa1be47aff6d76092896a780d62a9f582464fa1328dffaa8619e58",
+  "notified_hash": "3f10db858bfa1be47aff6d76092896a780d62a9f582464fa1328dffaa8619e58",
+  "text": "size=496465 last_modified=Sat, 27 Jun 2026 15:43:56 GMT",
   "consecutive_fail_runs": 0,
-  "last_checked": "15.07.2026 03:15:34 CEST",
-  "last_changed": "15.07.2026 03:15:34 CEST",
+  "last_checked": "15.07.2026 03:31:12 CEST",
+  "last_changed": "15.07.2026 03:31:12 CEST",
   "unavailable_notified": false
 }
